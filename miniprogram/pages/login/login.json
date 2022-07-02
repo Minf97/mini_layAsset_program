@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-divider": "@vant/weapp/divider/index",
+    "van-button": "@vant/weapp/button/index"
+  },
+  "pageOrientation": "auto",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "设置个人信息",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}

@@ -1,0 +1,39 @@
+<view class="container">
+  <!-- 头像 -->
+  <view class="userInfo">
+    <view class="avatar">
+      <navigator url="../login/login">
+        <image src="{{avatarUrl}}" mode="aspectFill"></image>
+      </navigator>
+      <view class="avatarText">
+        <view class="nickname">{{nickname}}</view>
+        <view class="user">会员名：h287728237@qq.com</view>
+      </view>
+
+      <!-- 碳积分 -->
+      <view class="CO2">
+        <image src="../../images/myself/co2.png"></image>
+        <view class="CO2_text">碳积分</view>
+      </view>
+    </view>
+  </view>
+  <!-- 我的发布 -->
+  <van-tabs active="{{ active }}" bind:change="onChange">
+    <van-tab title="我的发布">
+      <block wx:for="{{myPub}}" wx:key="*this">
+        <van-card custom-class="infoBox" num="1" price="{{item.price}}" desc="{{item.text}}" title="{{item.title}}" thumb="{{ item.src }}">
+          <view slot="tags">
+            <van-tag plain type="danger">{{item.tag}}</van-tag>
+          </view>
+          <view slot="footer">
+            <van-button size="mini" custom-class="vanBtn">编辑</van-button>
+            <van-button size="mini" custom-class="vanBtn">删除</van-button>
+          </view>
+        </van-card>
+      </block>
+    </van-tab>
+    <!-- 我的申请 -->
+    <van-tab title="我的申请">内容 2</van-tab>
+    <van-tab title="我的收藏">内容 3</van-tab>
+  </van-tabs>
+</view>

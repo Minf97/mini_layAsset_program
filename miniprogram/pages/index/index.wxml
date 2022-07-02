@@ -1,0 +1,63 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="head" style="width: 100%; height: {{statusBarHeight + lineHeight}}px; overflow: hidden;">
+    <!-- 状态栏 -->
+    <view style="height: {{statusBarHeight}}px;" />
+    <!-- 导航栏 -->
+    <view class="head_second" style="height: {{lineHeight}}px; padding: 0 {{menuButton.width+10}}px 0 50rpx;">
+      <navigator class="inputBox" hover-class="none" url="./pages/searchPage/searchPage">
+        <input class="searchInput" placeholder="搜索你感兴趣的内容" placeholder-class="placeholderStyle" disabled="true" />
+        <image src="../../images/search.png"></image>
+      </navigator>
+      <navigator url="../sort/sort">
+        分类
+      </navigator>
+      
+    </view>
+  </view>
+  <view style="height: {{statusBarHeight + lineHeight}}px;"></view>
+  <!-- 热门闲置 -->
+  <view class="hotBanner">
+    <view class="hotBanner_title">
+      <view class="hotBanner_title_left">热门闲置</view>
+      <view class="hotBanner_title_right">更多</view>
+    </view>
+    <!-- banner盒子 -->
+    <view class="hotBanner_content">
+      <block wx:for="{{hotBanner}}" wx:key="*this">
+        <view class="hotBanner_content_box">
+          <image class="hotBanner_content_img" src="{{item.src}}"></image>
+          <view class="hotBanner_content_text">{{item.text}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 绿色发展宣传 -轮播图 -->
+  <view class="carousel">
+    <swiper indicator-dots autoplay>
+      <swiper-item wx:for="{{imageSwiper}}" wx:key="*this">
+        <image src="{{item}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 标签 -->
+  <view class="label">
+    <block wx:for="{{label}}" wx:key="*this">
+      <view class="labelBox {{item.isChoosen ? 'labelBox_choosen' : ''}}">
+        {{item.text}}
+      </view>
+    </block>
+  </view>
+  <!-- 信息流 -->
+  <swiper style="height: {{(infoData[currentTab].length * 240)}}rpx; background-color: #fafafa;">
+    <swiper-item wx:for="{{infoData}}" wx:key="*this">
+      <block wx:for="{{item}}" wx:key="*this">
+        <van-card custom-class="infoBox" num="1" desc="{{item.text}}" title="{{item.title}}" thumb="{{ item.src }}">
+          <view slot="tags">
+            <van-tag plain type="danger">{{item.tag}}</van-tag>
+          </view>
+        </van-card>
+      </block>
+    </swiper-item>
+  </swiper>
+</view>

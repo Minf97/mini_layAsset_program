@@ -1,0 +1,190 @@
+.btn {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  align-items: center;
+ 
+}
+button {
+  margin: 0;
+  padding: 0;
+}
+
+.label {
+  padding: 15rpx 25rpx;
+  line-height: 30rpx;
+  background-color: rgb(248, 225, 70);
+  border-radius: 35rpx;
+  font-size: 28rpx;
+}
+/* 主干 */
+.body {
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+.mainText {
+  margin: 20rpx;
+  margin-left: 0;
+}
+.mainText textarea {
+  width: 98%;
+  caret-color: rgb(37, 37, 37);
+  color: rgb(24, 23, 23);
+  /* color: rgb(150, 150, 150); */
+  font-size: 26rpx;
+}
+
+/* 选择图片 */
+.chooseImageBox {
+  width: 750rpx;
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-left: 30rpx; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+  /* white-space:normal;  */
+}
+.beChoosen_ImageBox {
+  display: inline-block;
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+}
+.beChoosen_Image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 15rpx;
+}
+.del_beChoosen_Image {
+  position: absolute;
+  top: 5rpx;
+  right: 5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25rpx;
+  height: 25rpx;
+  border-radius: 50%;
+  background-color: rgb(10, 10, 10,0.3);
+  font-size: 25rpx;
+  color: #fff;
+}
+.beChoosen_ImageBox .del_beChoosen_Image image {
+  width: 25rpx;
+  height: 25rpx;
+}
+.chooseImage {
+  width: 160rpx;
+  height: 160rpx;
+  background-color: rgb(245, 245, 245);
+  border-radius: 15rpx;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.chooseImage image {
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+}
+/* end 选择图片 */
+
+/* 存放地点 */
+.nextLine {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.place {
+  min-width: 200rpx;
+  max-width: 400rpx;
+  line-height: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  background-color: rgb(245, 245, 245);
+  border-radius: 35rpx;
+  margin-top: 20rpx;
+}
+.place_text {
+  font-size: 27rpx;
+  color: #515151;
+}
+.place image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.place image:first-child {
+  margin-right: 5rpx;
+}
+.searchPub {
+  width: 180rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  line-height: 50rpx;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+  background-color: rgb(245, 245, 245);
+  border-radius: 35rpx;
+  font-size: 27rpx;
+  color: #515151;
+  margin-top: 20rpx;
+  letter-spacing: 1rpx;
+}
+.searchPub image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.van-cell {
+  padding: 10px 0 !important;
+}
+
+/* 弹出层 */
+.pop_box {
+  width: 100%;
+  height: 150rpx;
+  /* background-color: pink; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pop_title2 {
+  font-size: 25rpx;
+  color: #515151;
+  margin-top: 10rpx;
+}
+.pop-body {
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin-top: 50rpx;
+}
+.pop_input {
+  background-color: pink !important;
+}
+/* 标签 */
+.pop_label {
+  width: 100%;
+}
+.labelBox {
+  display: inline-block;
+  padding: 15rpx;
+  margin: 30rpx 20rpx 20rpx 0;
+  line-height: 30rpx;
+  background-color: rgb(247, 247, 247);
+  border-radius: 35rpx;
+}

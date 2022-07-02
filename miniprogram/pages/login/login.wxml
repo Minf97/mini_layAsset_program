@@ -1,0 +1,14 @@
+<view>
+  <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+  </button>
+  <form action="" bindsubmit="submit">
+    <van-divider />
+    <view class="box">
+      <label for="nickname">昵称：</label>
+      <input type="nickname" name="nickname" class="weui-input" placeholder="请输入昵称" />
+    </view>
+    <van-divider />
+    <van-button type="primary" form-type="submit">确定</van-button>
+  </form>
+</view>

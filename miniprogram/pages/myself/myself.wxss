@@ -1,0 +1,66 @@
+.userInfo {
+  position: relative;
+  width: 100%;
+  /* background-color: green; */
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.avatar {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+}
+/* 头像 */
+.avatar image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+  background-color: #fafafa;
+}
+.avatarText {
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.user {
+  font-size: 25rpx;
+  color: #868585;
+}
+/* 碳积分 */
+.CO2 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0,-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 28rpx;
+  color: rgb(121, 187, 22);
+  background-color: rgb(171, 255, 46, 0.5);
+  border-radius: 20rpx 0 0 20rpx;
+}
+.CO2 image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 5rpx;
+}
+/* 信息流 */
+.infoBox {
+  margin-bottom: 30rpx;
+  background-color: #fff !important;
+  border-bottom: 1rpx solid rgb(224, 222, 222);
+}
+.vanBtn {
+  /* width: 200rpx; */
+  border-radius: 30rpx !important;
+  margin: 0 10rpx;
+}
+
+/* .van-tabs__line {
+  background-color: rgb(245, 230, 64) !important;
+} */

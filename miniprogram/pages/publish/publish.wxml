@@ -1,0 +1,72 @@
+<view class="container">
+  <form bindsubmit="submit">
+    <!-- 头部按钮 -->
+    <view class="btn">
+      <view></view>
+      <button formType="submit" class="label">发布</button>
+    </view>
+    <!-- 输入框 -->
+    <view class="body">
+
+      <!-- 正文 -->
+      <view class="mainText">
+        <van-field type="number" name="price" value="{{ price }}" label="名称" left-icon="gold-coin-o" placeholder="￥0.00" input-align="right" />
+        <van-field type="number" name="priceOri" value="{{ priceOri }}" label="品牌" left-icon="shopping-cart-o" placeholder="￥0.00" input-align="right" />
+        <van-field type="text" name="tag" value="{{ tag }}" label="型号" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
+        <van-field type="text" name="tag" value="{{ tag }}" label="存放地点" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
+
+      </view>
+      <!-- end 正文 -->
+      <view class="chooseImageBox">
+        <!-- 渲染已选择图片 -->
+        <block wx:for="{{photo}}" wx:key="photoIndex">
+          <view class="beChoosen_ImageBox">
+            <image class="beChoosen_Image" src="{{item.tempFilePath}}" bindtap="preViewImage" data-index="{{index}}" mode="aspectFill"></image>
+            <view class="del_beChoosen_Image" bindtap="del_beChoosen_Image" data-index="{{index}}">
+              <image src="../../images/publish/close.png"></image>
+            </view>
+          </view>
+        </block>
+        <!-- end 渲染已选择图片 -->
+        <!-- 放入图片 -->
+        <view class="chooseImage" bindtap="chooseImage">
+          <image src="../../images/publish/jia.png"></image>
+        </view>
+        <!-- end 放入图片 -->
+      </view>
+      <view class="nextLine">
+        <!-- 存放地点 -->
+        <view class="place">
+          <image src="../../images/publish/position.png"></image>
+          <view class="place_text">深圳湾公园</view>
+          <image src="../../images/publish/right.png"></image>
+        </view>
+        <!-- end 存放地点 -->
+        <!-- 搜索添加 -->
+        <view class="searchPub">
+          <image src="../../images/publish/search.png"></image>
+          <view class="searchPub_text" bindtap="showPop">搜索增加</view>
+        </view>
+        <!-- end 搜索添加 -->
+      </view>
+      <van-divider />
+      <van-field type="number" name="price" value="{{ price }}" label="价格" left-icon="gold-coin-o" placeholder="￥0.00" input-align="right" />
+      <van-field type="number" name="priceOri" value="{{ priceOri }}" label="原价" left-icon="shopping-cart-o" placeholder="￥0.00" input-align="right" />
+      <van-field type="text" name="tag" value="{{ tag }}" label="标签" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
+    </view>
+  </form>
+</view>
+
+<!-- 弹出层 -->
+<van-popup show="{{ show }}" round position="bottom" custom-style="height: 80%" bind:close="onClose">
+  <view class="pop_box">
+    <view class="pop_title1">搜索发布</view>
+    <view class="pop_title2">搜一搜想卖的宝贝，一键发布</view>
+  </view>
+  <view class="pop-body">
+    <van-field value="{{ sms }}" left-icon="search" center clearable placeholder="请输入资产名称，如：iPhoneX" border="{{ false }}" />
+    <view class="pop_label">
+      <view class="labelBox" wx:for="{{label}}">{{item}}</view>
+    </view>
+  </view>
+</van-popup>

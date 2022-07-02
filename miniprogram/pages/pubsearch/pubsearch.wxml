@@ -1,0 +1,13 @@
+<view class="container">
+  <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+    <van-sidebar-item title="资产编码" />
+    <van-sidebar-item title="资产类别" />
+    <van-sidebar-item title="使用部门" />
+    <van-sidebar-item title="开始使用日期" />
+    <van-sidebar-item title="闲置时长" />
+    <van-sidebar-item title="原值范围" />
+  </van-sidebar>
+  <view class="btn">
+    <van-button type="primary" size="normal">导入excel</van-button>
+  </view>
+</view>

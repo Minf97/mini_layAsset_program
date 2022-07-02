@@ -1,0 +1,12 @@
+.container {
+  min-height: 100vh;
+}
+.btn {
+  position: absolute;
+  bottom: 20rpx;
+  right: 30rpx;
+  margin: 50rpx 0 0 10rpx;
+}
+.van-sidebar-item--selected {
+  border-color: rgb(235, 216, 15) !important;
+}
