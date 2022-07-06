@@ -1,12 +1,37 @@
 .container {
   min-height: 100vh;
+  position: relative;
+  /* background-color: #ccc; */
 }
+
 .btn {
   position: absolute;
   bottom: 20rpx;
   right: 30rpx;
   margin: 50rpx 0 0 10rpx;
 }
+
 .van-sidebar-item--selected {
   border-color: rgb(235, 216, 15) !important;
+}
+
+.van-overlay {
+  background-color: rgba(0, 0, 0, .3) !important;
+}
+
+.xialaView {
+  position: absolute;
+  background-color: #fff;
+  width: 489rpx;
+  min-height: 200rpx;
+  max-height: 400rpx;
+  border-radius: 0 0 20rpx 20rpx;
+  /* border: 1rpx solid black; */
+  box-shadow: #ccc 0 5rpx 10rpx 0rpx;
+  z-index: 999;
+}
+.input-class {
+  /* border: 1rpx solid black !important; */
+  border-radius: 10rpx;
+  box-shadow: 0 0 5rpx 0 #ccc inset;
 }

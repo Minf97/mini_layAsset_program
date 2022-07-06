@@ -1,7 +1,10 @@
-<navigator url="../publish/publish">
-  <view style="line-height: 50rpx; padding: 0 20rpx;">直接增加</view>
+<navigator url="../pubsearch/pubsearch">
+  <view style="line-height: 100rpx; padding: 0 20rpx;">搜索增加</view>
 </navigator>
 
-<navigator url="../pubsearch/pubsearch">
-  <view style="line-height: 50rpx; padding: 0 20rpx;">搜索增加</view>
+
+<van-divider />
+
+<navigator url="../publish/publish">
+  <view style="line-height: 100rpx; padding: 0 20rpx;">直接增加</view>
 </navigator>

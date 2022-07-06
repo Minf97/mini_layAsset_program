@@ -10,9 +10,14 @@
 
       <!-- 正文 -->
       <view class="mainText">
-        <van-field type="number" name="price" value="{{ price }}" label="名称" left-icon="gold-coin-o" placeholder="￥0.00" input-align="right" />
-        <van-field type="number" name="priceOri" value="{{ priceOri }}" label="品牌" left-icon="shopping-cart-o" placeholder="￥0.00" input-align="right" />
-        <van-field type="text" name="tag" value="{{ tag }}" label="型号" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
+        <van-field type="text" name="tag" value="{{ tag }}" label="资产编码" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
+        <van-field type="text" name="tag" value="{{ tag }}" label="资产类别" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
+        <van-field type="text" name="tag" value="{{ tag }}" label="使用部门" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
+        <van-field type="text" name="tag" value="{{ tag }}" label="开始使用日期" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
+        <van-field type="text" name="tag" value="{{ tag }}" label="闲置时长" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
+        <van-field type="number" name="priceOri" value="{{ priceOri }}" label="原值" left-icon="shopping-cart-o" placeholder="￥0.00" input-align="right" />
+        <van-field type="text" name="price" value="{{ price }}" label="名称" left-icon="gold-coin-o" placeholder="￥0.00" input-align="right" />
+        <van-field type="text" name="priceOri" value="{{ priceOri }}" label="品牌" left-icon="shopping-cart-o" placeholder="￥0.00" input-align="right" />
         <van-field type="text" name="tag" value="{{ tag }}" label="存放地点" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
 
       </view>
@@ -50,9 +55,6 @@
         <!-- end 搜索添加 -->
       </view>
       <van-divider />
-      <van-field type="number" name="price" value="{{ price }}" label="价格" left-icon="gold-coin-o" placeholder="￥0.00" input-align="right" />
-      <van-field type="number" name="priceOri" value="{{ priceOri }}" label="原价" left-icon="shopping-cart-o" placeholder="￥0.00" input-align="right" />
-      <van-field type="text" name="tag" value="{{ tag }}" label="标签" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
     </view>
   </form>
 </view>

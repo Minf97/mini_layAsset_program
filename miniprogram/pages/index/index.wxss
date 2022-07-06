@@ -37,7 +37,7 @@
   margin-left: -30rpx;
   /* box-sizing: border-box; */
   width: 340rpx;
-  height: 75%;
+  height: 70%;
   background-color: #fff;
   border-radius: 60rpx;
   border: 4rpx solid #F5E640;

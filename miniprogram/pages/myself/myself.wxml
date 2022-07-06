@@ -2,14 +2,14 @@
   <!-- 头像 -->
   <view class="userInfo">
     <view class="avatar">
-      <navigator url="../login/login">
+      <navigator url="../login/login" style="display: flex; flex-direction: row;align-items: center;">
         <image src="{{avatarUrl}}" mode="aspectFill"></image>
+        <view class="avatarText">
+          <view class="nickname">{{nickname}}</view>
+          <view class="user">采购部</view>
+          <image src="../../images/myself/right.png" class="imageRight"></image>
+        </view>
       </navigator>
-      <view class="avatarText">
-        <view class="nickname">{{nickname}}</view>
-        <view class="user">会员名：h287728237@qq.com</view>
-      </view>
-
       <!-- 碳积分 -->
       <view class="CO2">
         <image src="../../images/myself/co2.png"></image>
@@ -21,7 +21,7 @@
   <van-tabs active="{{ active }}" bind:change="onChange">
     <van-tab title="我的发布">
       <block wx:for="{{myPub}}" wx:key="*this">
-        <van-card custom-class="infoBox" num="1" price="{{item.price}}" desc="{{item.text}}" title="{{item.title}}" thumb="{{ item.src }}">
+        <van-card custom-class="infoBox" num="1" desc="{{item.text}}" title="{{item.title}}" thumb="{{ item.src }}">
           <view slot="tags">
             <van-tag plain type="danger">{{item.tag}}</van-tag>
           </view>

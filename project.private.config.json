@@ -32,6 +32,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "信息详情页",
+          "pathName": "pages/detail/detail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "搜索添加",
+          "pathName": "pages/pubsearch/pubsearch",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

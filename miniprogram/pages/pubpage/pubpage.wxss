@@ -1,1 +1,3 @@
-/* pages/pubpage/pubpage.wxss */
+.van-divider {
+  margin: 10rpx !important;
+}

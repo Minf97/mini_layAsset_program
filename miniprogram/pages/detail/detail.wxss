@@ -1,0 +1,6 @@
+page {
+  background-color: rgb(247, 248, 250);
+}
+.textBox {
+  margin: 50rpx 0;
+}

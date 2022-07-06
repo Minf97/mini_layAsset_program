@@ -1,14 +1,29 @@
-// pages/sort/sort.js
+// pages/detail/detail.js
 Page({
 
+  /**
+   * 页面的初始数据
+   */
   data: {
-    activeKey: 0,
-    list:['资产编码','资产名称','资产管理类别','管理部分','使用部分','存放地点','投用日期','原值','净值','增加方式','功能情况']
-  },
-  onChange(e) {
-    console.log(e);
+    textDetail: [
+      {
+        label: '资产编码',
+        value: 'A10123'
+      },{
+        label: '资产类别',
+        value: 'xxx',
+        des: '固定资产/'
+      },
+      {
+        label: '使用部门',
+        value: '采购部'
+      },
+    ]
   },
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad(options) {
 
   },

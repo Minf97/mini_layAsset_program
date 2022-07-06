@@ -5,6 +5,17 @@
   padding: 0 20rpx;
   box-sizing: border-box;
 }
+.imageRight {
+  width: 40rpx !important;
+  height: 40rpx !important;
+  background-color: #fff !important;
+  margin-right: 0 !important;
+  position: absolute;
+  top: 50%;
+  right: -20rpx;
+  transform: translate(0,-50%);
+  opacity: 0.7;
+}
 .avatar {
   display: flex;
   flex-direction: row;
@@ -21,6 +32,8 @@
   background-color: #fafafa;
 }
 .avatarText {
+  min-width: 100rpx;
+  position: relative;
   height: 100rpx;
   display: flex;
   flex-direction: column;
