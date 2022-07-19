@@ -1,3 +1,6 @@
+.container {
+  min-height: 100vh;
+}
 .head {
   position: fixed;
   /* background-color: white; */
@@ -52,9 +55,15 @@
   width: 100%;
   margin: 20rpx 0;
 }
+.boxbox {
+  margin: 30rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  background-color: rgba(247, 244, 244, 0.6);
+}
 .hotBanner_title {
   width: 100%;
-  padding: 0 20rpx;
+  padding: 15rpx 20rpx 0 20rpx;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -75,11 +84,13 @@
   /* background-color: green; */
 }
 .hotBanner_content_img {
-  width: 80rpx;
-  height: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
 }
 .hotBanner_content_text {
-  font-size: 28rpx;
+  margin: 15rpx 0;
+  opacity: 0.9;
+  font-size: 26rpx;
 }
 /* 轮播图 */
 .carousel {
@@ -121,4 +132,19 @@
 .infoBox {
   margin-bottom: 30rpx;
   background-color: #fff !important;
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.datanull {
+  width: 100%;
+  line-height: 50rpx;
+  font-size: 25rpx;
+  color: rgb(168, 167, 167);
+  text-align: center;
+}
+.tag {
+  letter-spacing: 2rpx;
 }

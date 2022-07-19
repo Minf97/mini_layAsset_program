@@ -1,78 +1,46 @@
-// pages/detail/detail.js
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    textDetail: [
-      {
-        label: '资产编码',
-        value: 'A10123'
-      },{
-        label: '资产类别',
-        value: 'xxx',
-        des: '固定资产/'
-      },
-      {
-        label: '使用部门',
-        value: '采购部'
-      },
-    ]
+    data: {}
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
-
+    let data = JSON.parse(decodeURIComponent(options.data))
+    
+    // let keys = []
+    // let vals = []
+    // for(let key in data) {
+    //   keys.push(key)
+    //   vals.push(data[key])
+    // }
+    let newData = {
+        '资产编码': data['num'],
+        '资产名称': data['name'],
+        '资产类别': data['catagory'],
+        '管理部门': data['partment'],
+        '使用部门': data['Usepartment'],
+        '原值': data['originalVal'],
+        '净值': data['nowVal'],
+        '存放地点': data['place'],
+        '投用日期': data['date'],
+        '功能情况': data['funcStation'],
+        fileID: data['fileID']
+      }
+    this.setData({
+      data: newData
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  preview(e) {
+    console.log(e);
+    let {currentTarget: {dataset:{index}}} = e
+    let data = this.data.data
+    console.log(index);
+    wx.previewImage({
+      urls: data.fileID,
+      current: data.fileID[+(index)]
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage() {
 
   }

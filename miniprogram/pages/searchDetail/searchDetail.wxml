@@ -1,0 +1,13 @@
+<van-dropdown-menu>
+  <van-dropdown-item bind:change="change11" value="{{ value1 }}" options="{{ option1 }}" />
+  <van-dropdown-item bind:change="change11" value="{{ value2 }}" options="{{ option2 }}" />
+</van-dropdown-menu>
+
+<block wx:for="{{list}}" wx:key="*this">
+  <van-card custom-class="infoBox" num="1" desc="{{item.name}}" title="{{item.partment}}" thumb="{{ item.fileID[0] }}" data-index="{{index}}" bindtap="naviTodetail">
+    <view slot="tags">
+      <van-tag plain type="danger">{{item.catagory}}</van-tag>
+    </view>
+  </van-card>
+</block>
+<view wx:if="{{loadAll}}" class="datanull">- 暂无更多数据 -</view>

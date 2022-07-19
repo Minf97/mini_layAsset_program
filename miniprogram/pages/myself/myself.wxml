@@ -3,17 +3,17 @@
   <view class="userInfo">
     <view class="avatar">
       <navigator url="../login/login" style="display: flex; flex-direction: row;align-items: center;">
-        <image src="{{avatarUrl}}" mode="aspectFill"></image>
+        <image src="{{user.avatarUrl}}" mode="aspectFill"></image>
         <view class="avatarText">
-          <view class="nickname">{{nickname}}</view>
-          <view class="user">采购部</view>
-          <image src="../../images/myself/right.png" class="imageRight"></image>
+          <view class="nickname">{{user.nickname}}</view>
+          <view class="user">{{user.username}}</view>
+          <image src="../../images/myself/setting.png" class="imageRight"></image>
         </view>
       </navigator>
       <!-- 碳积分 -->
       <view class="CO2">
         <image src="../../images/myself/co2.png"></image>
-        <view class="CO2_text">碳积分</view>
+        <view class="CO2_text">碳积分 {{mark}}</view>
       </view>
     </view>
   </view>
@@ -21,19 +21,52 @@
   <van-tabs active="{{ active }}" bind:change="onChange">
     <van-tab title="我的发布">
       <block wx:for="{{myPub}}" wx:key="*this">
-        <van-card custom-class="infoBox" num="1" desc="{{item.text}}" title="{{item.title}}" thumb="{{ item.src }}">
+        <van-card custom-class="infoBox" desc="{{item.name}}" title="{{item.partment}}" thumb="{{ item.fileID[0] }}">
           <view slot="tags">
-            <van-tag plain type="danger">{{item.tag}}</van-tag>
+            <van-tag plain type="danger">{{item.catagory}}</van-tag>
           </view>
           <view slot="footer">
-            <van-button size="mini" custom-class="vanBtn">编辑</van-button>
-            <van-button size="mini" custom-class="vanBtn">删除</van-button>
+            <van-button size="mini" data-_id="{{item._id}}" custom-class="vanBtn" bind:click="del">删除</van-button>
           </view>
         </van-card>
       </block>
+      <view wx:if="{{loadAll_myPub}}" class="datanull">- 暂无更多数据 -</view>
     </van-tab>
     <!-- 我的申请 -->
-    <van-tab title="我的申请">内容 2</van-tab>
-    <van-tab title="我的收藏">内容 3</van-tab>
+    <van-tab title="我的申请">
+      <van-steps steps="{{ steps }}" active="{{ activeStep }}" />
+      <block wx:for="{{application}}" wx:key="*this">
+        <van-card custom-class="infoBox" desc="{{item.name}}" title="{{item.partment}}" thumb="{{ item.fileID[0] }}">
+          <view slot="tags">
+            <van-tag plain type="danger">{{item.catagory}}</van-tag>
+          </view>
+          <view slot="footer">
+            <van-button size="mini" data-_id="{{item._id}}" custom-class="vanBtn" bind:click="del">删除</van-button>
+          </view>
+        </van-card>
+      </block>
+      <view wx:if="{{loadAll_application}}" class="datanull">- 暂无更多数据 -</view>
+    </van-tab>
+    <!-- 我的审批 -->
+    <van-tab title="我的审批">
+      <block wx:for="{{myPub}}" wx:key="*this">
+        <van-card custom-class="infoBox" desc="{{item.name}}" title="{{item.partment}}" thumb="{{ item.fileID[0] }}">
+          <view slot="tags">
+            <van-tag plain type="danger">{{item.catagory}}</van-tag>
+          </view>
+          <view slot="footer" wx:if="{{!item.success}}">
+            <van-button size="mini" custom-class="vanBtn" bind:click="check" data-index="{{index}}">待审批</van-button>
+            <van-button size="mini" data-_id="{{item._id}}" disabled="{{true}}" custom-class="vanBtn">撤销</van-button>
+          </view>
+          <view slot="footer" wx:else>
+            <van-button size="mini" disabled="{{true}}" custom-class="vanBtn">已完成</van-button>
+            <van-button size="mini" data-_id="{{item._id}}" custom-class="vanBtn" bind:click="back" data-index="{{index}}">撤销</van-button>
+          </view>
+        </van-card>
+      </block>
+      <view wx:if="{{loadAll_application}}" class="datanull">- 暂无更多数据 -</view>
+    </van-tab>
   </van-tabs>
 </view>
+
+<van-dialog id="van-dialog" />

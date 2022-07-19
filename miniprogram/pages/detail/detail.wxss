@@ -4,3 +4,10 @@ page {
 .textBox {
   margin: 50rpx 0;
 }
+.box {
+  padding: 0 16px;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-bottom: 50rpx;
+}

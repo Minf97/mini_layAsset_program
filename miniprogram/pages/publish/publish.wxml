@@ -1,5 +1,5 @@
 <view class="container">
-  <form bindsubmit="submit">
+  <form bindsubmit="formSubmit">
     <!-- 头部按钮 -->
     <view class="btn">
       <view></view>
@@ -10,16 +10,13 @@
 
       <!-- 正文 -->
       <view class="mainText">
-        <van-field type="text" name="tag" value="{{ tag }}" label="资产编码" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
-        <van-field type="text" name="tag" value="{{ tag }}" label="资产类别" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
-        <van-field type="text" name="tag" value="{{ tag }}" label="使用部门" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
-        <van-field type="text" name="tag" value="{{ tag }}" label="开始使用日期" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
-        <van-field type="text" name="tag" value="{{ tag }}" label="闲置时长" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
-        <van-field type="number" name="priceOri" value="{{ priceOri }}" label="原值" left-icon="shopping-cart-o" placeholder="￥0.00" input-align="right" />
-        <van-field type="text" name="price" value="{{ price }}" label="名称" left-icon="gold-coin-o" placeholder="￥0.00" input-align="right" />
-        <van-field type="text" name="priceOri" value="{{ priceOri }}" label="品牌" left-icon="shopping-cart-o" placeholder="￥0.00" input-align="right" />
-        <van-field type="text" name="tag" value="{{ tag }}" label="存放地点" left-icon="label-o" placeholder="手机/电脑..." input-align="right" />
-
+        <van-field type="text" name="name" value="{{ tag }}" left-icon="" clickable label="资产名称"  placeholder="手机/电脑..." input-align="right" />
+        <van-field type="text" name="partment" value="{{ tag }}" label="管理部门" placeholder="管理部门" input-align="right" />
+        <van-field type="text" name="Usepartment" value="{{ tag }}" label="使用部门" placeholder="使用部门" input-align="right" />
+        <van-field type="text" name="users" value="{{ tag }}" label="使用人" placeholder="使用人" input-align="right" />
+        <van-field type="text" name="originalVal" value="{{ tag }}" label="原值" placeholder="￥0.00" input-align="right" />
+        <van-field type="number" name="date" value="{{ priceOri }}" label="开始使用日期" placeholder="开始使用日期" input-align="right" />
+        <van-field type="text" name="place" value="{{ price }}" label="存放地点" placeholder="存放地点" input-align="right" />
       </view>
       <!-- end 正文 -->
       <view class="chooseImageBox">
@@ -42,9 +39,9 @@
       <view class="nextLine">
         <!-- 存放地点 -->
         <view class="place">
-          <image src="../../images/publish/position.png"></image>
+          <!-- <image src="../../images/publish/position.png"></image>
           <view class="place_text">深圳湾公园</view>
-          <image src="../../images/publish/right.png"></image>
+          <image src="../../images/publish/right.png"></image> -->
         </view>
         <!-- end 存放地点 -->
         <!-- 搜索添加 -->
@@ -72,3 +69,5 @@
     </view>
   </view>
 </van-popup>
+
+<van-dialog id="van-dialog" />

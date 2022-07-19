@@ -1,0 +1,27 @@
+<view class='shasbg'>
+  <view class='searview'>
+    <icon class='icon-search'></icon>
+    <view class='searall'>
+      <input type='text' placeholder="请输入名称/编号/部门等..." value='{{keyWord}}' confirm-type='search' focus="{{autoFocus}}" bindconfirm='goSearch' bindblur="blursearch" bindinput='inputsearch' bindfocus="inputfocus"></input>
+      <icon class='icon-cancel' bindtap='cancelword' wx:if='{{keyWord}}'></icon>
+    </view>
+    <button bindtap='searchBtn'>搜索</button>
+  </view>
+</view>
+
+<view class="history">
+  <view class="title">
+    <text>历史搜索</text>
+    <image class="img" src="../../images/search/rubbish.png" bindtap="delHistory"></image>
+  </view>
+  <view class="box" >
+    <view class="box111" data-value="{{item}}" bindtap="naviTo" wx:for="{{history}}">{{item}}</view>
+  </view>
+</view>
+
+<view class="history">
+  <view class="title">热门搜索</view>
+  <view class="box" >
+    <view class="box111" data-value="{{item}}" bindtap="naviTo" wx:for="{{hot}}">{{item}}</view>
+  </view>
+</view>

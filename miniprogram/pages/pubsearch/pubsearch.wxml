@@ -1,29 +1,57 @@
 <view class="container">
-  <form>
+  <form bindsubmit="formSubmit">
     <block wx:for="{{list1}}" wx:key="*this">
-      <van-field input-class="{{item.onfocus ? 'input-class' : ''}}" bind:focus="onFocus" border="{{item.onfocus}}" bind:blur="onBlur" data-index="{{index}}" required="{{item.required}}" clickable type="{{item.type}}" name="{{item.name}}" label="{{item.label}}" left-icon="{{item.icon}}" placeholder="{{item.placeholder}}" input-align="right" />
+      <van-cell required="{{item.required}}" wx:if="{{item.label=='功能情况' || item.label=='开始闲置日期'}}" title="{{item.label}}" is-link value="{{item.value}}" data-value="{{item.dataset}}" bind:click="popshow" />
+
+      <van-field wx:else bind:change="fieldChange" input-class="{{item.onfocus ? 'input-class' : ''}}" bind:focus="onFocus" border="{{item.onfocus}}" bind:blur="onBlur" data-index="{{index}}" required="{{item.required}}" clickable type="{{item.type}}" name="{{item.name}}" label="{{item.label}}" value="{{item.value}}" left-icon="{{item.icon}}" placeholder="{{item.placeholder}}" input-align="right" />
       <view hidden="{{!item.onfocus}}" class="xialaView" style="top: {{(index*88) + 68}}rpx; left: 230rpx;">
-        <!-- <block wx:for="{{}}"> -->
-        <van-cell title="A12123" clickable icon="clock-o" value="{{item.value}}" data-value="{{item.dataset}}" />
-        <!-- </block> -->
+        <block wx:for="{{hint}}" wx:key="*this" wx:for-item="e" wx:for-index="idx">
+          <van-cell title="{{e}}" clickable icon="clock-o" data-idx="{{idx}}" data-index="{{index}}" bindtap="chooseHint" />
+
+        </block>
       </view>
     </block>
 
-    <!-- <block wx:for="{{list2}}" wx:key="*this">
-      <van-cell title="{{item.label}}" is-link value="{{item.value}}" data-value="{{item.dataset}}" bind:click="popshow" />
-    </block> -->
+
+    <view class="chooseImageBox">
+      <!-- 渲染已选择图片 -->
+      <block wx:for="{{photo}}" wx:key="photoIndex">
+        <view class="beChoosen_ImageBox">
+          <image class="beChoosen_Image" src="{{item.tempFilePath}}" bindtap="preViewImage" data-index="{{index}}" mode="aspectFill"></image>
+          <view class="del_beChoosen_Image" bindtap="del_beChoosen_Image" data-index="{{index}}">
+            <image src="../../images/publish/close.png"></image>
+          </view>
+        </view>
+      </block>
+      <!-- end 渲染已选择图片 -->
+      <!-- 放入图片 -->
+      <view wx:if="{{photo.length < 9}}" class="chooseImage" bindtap="chooseImage">
+        <image src="../../images/publish/jia.png"></image>
+      </view>
+      <!-- end 放入图片 -->
+    </view>
+    <!-- 发布按钮 -->
+    <van-button form-type="submit" custom-class="btnClass" round type="primary">发布</van-button>
   </form>
 </view>
 
-<van-popup show="{{ show1 }}" position="bottom" custom-style="height: 50%;" data-value="assetSort" bind:close="popClose">
-  <van-picker show-toolbar title="选择类别" columns="{{ catagory}}" data-value="assetSort" bind:cancel="popClose" bind:confirm="popConfirm" bind:change="onChange1" />
+
+<!-- <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" /> -->
+<van-popup show="{{ show3 }}" position="bottom" custom-style="height: 50%;" data-value="date" bind:close="popClose">
+  <van-datetime-picker
+  type="date"
+  title="选择时间"
+  value="{{ currentDate }}"
+  bind:input="onInput"
+  min-date="{{ minDate }}"
+  formatter="{{ formatter }}"
+/>
 </van-popup>
-<van-popup show="{{ show2 }}" position="bottom" custom-style="height: 50%;" data-value="managePartment" bind:close="popClose">
-  <van-picker show-toolbar title="选择部门" columns="{{ partment }}" data-value="managePartment" bind:cancel="popClose" bind:confirm="popConfirm" bind:change="onChange1" />
-</van-popup>
-<!-- <van-popup show="{{ show3 }}" position="bottom" custom-style="height: 50%;" data-value="originalVal" bind:close="popClose">
-  <van-picker show-toolbar title="原值" columns="{{ columns3 }}" data-value="originalVal" bind:cancel="popClose" bind:confirm="popConfirm" bind:change="onChange1" />
+<!-- <van-popup show="{{ show4 }}" position="bottom" custom-style="height: 50%;" data-value="date" bind:close="popClose">
+  <van-picker show-toolbar title="投用日期" columns="{{ columns4 }}" data-value="date" bind:cancel="popClose" bind:confirm="popConfirm" bind:change="onChange1" />
 </van-popup>
 <van-popup show="{{ show5 }}" position="bottom" custom-style="height: 50%;" data-value="funcStation" bind:close="popClose">
-  <van-picker show-toolbar title="功能情况" columns="{{ columns3 }}" data-value="funcStation" bind:cancel="popClose" bind:confirm="popConfirm" bind:change="onChange1" />
+  <van-picker show-toolbar title="功能情况" columns="{{ columns5 }}" data-value="funcStation" bind:cancel="popClose" bind:confirm="popConfirm" bind:change="onChange1" />
 </van-popup> -->
+
+<van-dialog id="van-dialog" />

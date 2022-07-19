@@ -1,14 +1,20 @@
-<view>
-  <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-    <image class="avatar" src="{{avatarUrl}}"></image>
-  </button>
+<view class="container">
+  <view class="avatarBox">
+    <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <image class="avatar" src="{{avatarUrl}}"></image>
+    </button>
+  </view>
+
   <form action="" bindsubmit="submit">
-    <van-divider />
-    <view class="box">
-      <label for="nickname">昵称：</label>
-      <input type="nickname" name="nickname" class="weui-input" placeholder="请输入昵称" />
+    <van-cell-group inset>
+      <van-field label="账号：" name="username" placeholder="请输入账号" border="{{ false }}" />
+      <van-field label="密码：" name="password" type="password" placeholder="请输入密码" border="{{ false }}" error-message="{{error_message_password}}" />
+      <van-field label="昵称：" name="nickname" placeholder="请输入昵称" border="{{ false }}" />
+    </van-cell-group>
+    <view class="btnBox">
+      <van-button custom-class="vanbtn" type="primary" form-type="submit">登录/注册</van-button>
     </view>
-    <van-divider />
-    <van-button type="primary" form-type="submit">确定</van-button>
   </form>
+
+  <van-toast id="van-toast" />
 </view>

@@ -103,7 +103,7 @@ button {
   flex-direction: row;
   justify-content: space-between;
 }
-.place {
+/* .place {
   min-width: 200rpx;
   max-width: 400rpx;
   line-height: 50rpx;
@@ -116,7 +116,7 @@ button {
   background-color: rgb(245, 245, 245);
   border-radius: 35rpx;
   margin-top: 20rpx;
-}
+} */
 .place_text {
   font-size: 27rpx;
   color: #515151;

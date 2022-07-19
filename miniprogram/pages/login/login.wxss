@@ -2,10 +2,13 @@
   padding: 0;
   width: 56px !important;
   border-radius: 8px;
-  margin-top: 40px;
+  /* margin-top: 40px; */
+  box-sizing: border-box;
   margin-bottom: 40px;
 }
-
+.avatarBox {
+  padding-top: 40px;
+}
 .avatar {
   display: block;
   width: 56px;
@@ -13,7 +16,8 @@
 }
 
 .container {
-  display: flex;
+  min-height: 100vh;
+  background-color: rgb(243, 243, 243);
 }
 .box {
   display: flex;
@@ -25,8 +29,18 @@ label {
   margin-right: 20rpx;
 }
 van-button {
-  margin-top: 100rpx;
-  position: absolute;
+  /* margin-top: 100rpx; */
+  /* position: absolute;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translate(-50%,0); */
+}
+.btnBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.vanbtn {
+  width: 300px !important;
 }

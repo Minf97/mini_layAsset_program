@@ -5,31 +5,36 @@
     <view style="height: {{statusBarHeight}}px;" />
     <!-- 导航栏 -->
     <view class="head_second" style="height: {{lineHeight}}px; padding: 0 {{menuButton.width+10}}px 0 50rpx;">
-      <navigator class="inputBox" hover-class="none" url="./pages/searchPage/searchPage">
+      <navigator class="inputBox" hover-class="none" url="../search/search">
         <input class="searchInput" placeholder="搜索你感兴趣的内容" placeholder-class="placeholderStyle" disabled="true" />
         <image src="../../images/search.png"></image>
       </navigator>
-      <navigator url="../sort/sort">
+      <navigator url="../sort/sort" style="font-size: 28rpx; color: rgb(99, 98, 98);">
         分类
       </navigator>
-      
+
     </view>
   </view>
+
   <view style="height: {{statusBarHeight + lineHeight}}px;"></view>
   <!-- 热门闲置 -->
   <view class="hotBanner">
-    <view class="hotBanner_title">
-      <view class="hotBanner_title_left">热门闲置</view>
-      <view class="hotBanner_title_right">更多</view>
-    </view>
-    <!-- banner盒子 -->
-    <view class="hotBanner_content">
-      <block wx:for="{{hotBanner}}" wx:key="*this">
-        <view class="hotBanner_content_box">
-          <image class="hotBanner_content_img" src="{{item.src}}"></image>
-          <view class="hotBanner_content_text">{{item.text}}</view>
+    <view class="boxbox">
+      <view class="hotBanner_title">
+        <view class="hotBanner_title_left" style="font-size: 28rpx; color: rgb(99, 98, 98);">
+          热门闲置
+          <van-tag type="warning" color="rgb(255, 151, 106,0.9)" custom-class="tag">电脑|数码相机|打印机</van-tag>
         </view>
-      </block>
+      </view>
+      <!-- banner盒子 -->
+      <view class="hotBanner_content">
+        <block wx:for="{{hotBanner}}" wx:key="*this">
+          <view class="hotBanner_content_box" data-value="{{item.text}}" bindtap="hotnavi">
+            <image class="hotBanner_content_img" src="{{item.src}}"></image>
+            <view class="hotBanner_content_text">{{item.text}}</view>
+          </view>
+        </block>
+      </view>
     </view>
   </view>
   <!-- 绿色发展宣传 -轮播图 -->
@@ -48,16 +53,16 @@
       </view>
     </block>
   </view>
+  <view class="box">
+    <van-loading wx:if="{{loading}}" size="24px" vertical>加载中...</van-loading>
+  </view>
   <!-- 信息流 -->
-  <swiper style="height: {{(infoData[currentTab].length * 240)}}rpx; background-color: #fafafa;">
-    <swiper-item wx:for="{{infoData}}" wx:key="*this">
-      <block wx:for="{{item}}" wx:key="*this">
-        <van-card custom-class="infoBox" num="1" desc="{{item.text}}" title="{{item.title}}" thumb="{{ item.src }}">
-          <view slot="tags">
-            <van-tag plain type="danger">{{item.tag}}</van-tag>
-          </view>
-        </van-card>
-      </block>
-    </swiper-item>
-  </swiper>
+  <block wx:for="{{infoData}}" wx:key="*this">
+    <van-card custom-class="infoBox" num="1" desc="{{item.name}}" title="{{item.partment}}" thumb="{{ item.fileID[0] }}" data-index="{{index}}" bindtap="naviTodetail">
+      <view slot="tags">
+        <van-tag plain type="danger">{{item.catagory}}</van-tag>
+      </view>
+    </van-card>
+  </block>
+  <view wx:if="{{loadAll}}" class="datanull">- 暂无更多数据 -</view>
 </view>

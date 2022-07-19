@@ -24,7 +24,8 @@
   background-color: #fff;
   width: 489rpx;
   min-height: 200rpx;
-  max-height: 400rpx;
+  /* max-height: 400rpx; */
+  /* overflow: hidden; */
   border-radius: 0 0 20rpx 20rpx;
   /* border: 1rpx solid black; */
   box-shadow: #ccc 0 5rpx 10rpx 0rpx;
@@ -34,4 +35,73 @@
   /* border: 1rpx solid black !important; */
   border-radius: 10rpx;
   box-shadow: 0 0 5rpx 0 #ccc inset;
+}
+
+/* 选择图片 */
+.chooseImageBox {
+  width: 750rpx;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+  /* margin-left: 30rpx; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+  /* white-space:normal;  */
+}
+.beChoosen_ImageBox {
+  display: inline-block;
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+.beChoosen_Image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 15rpx;
+}
+.del_beChoosen_Image {
+  position: absolute;
+  top: 5rpx;
+  right: 5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25rpx;
+  height: 25rpx;
+  border-radius: 50%;
+  background-color: rgb(10, 10, 10,0.3);
+  font-size: 25rpx;
+  color: #fff;
+}
+.beChoosen_ImageBox .del_beChoosen_Image image {
+  width: 25rpx;
+  height: 25rpx;
+}
+.chooseImage {
+  width: 160rpx;
+  height: 160rpx;
+  background-color: rgb(245, 245, 245);
+  border-radius: 15rpx;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.chooseImage image {
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+}
+/* end 选择图片 */
+
+.btnClass {
+  position: absolute;
+  bottom: -10rpx;
+  left: 50%;
+  transform: translate(-50%,-10%);
+  width: 90%;
+  margin-bottom: 15rpx;
 }

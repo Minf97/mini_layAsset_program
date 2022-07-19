@@ -1,13 +1,21 @@
 <view class="container">
   <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
     <van-sidebar-item title="资产编码" />
-    <van-sidebar-item title="资产类别" />
+    <van-sidebar-item title="资产名称" />
+    <van-sidebar-item title="资产管理类别" />
+    <van-sidebar-item title="管理部门" />
     <van-sidebar-item title="使用部门" />
-    <van-sidebar-item title="开始使用日期" />
-    <van-sidebar-item title="闲置时长" />
-    <van-sidebar-item title="原值范围" />
+    <van-sidebar-item title="投用日期" />
+    <van-sidebar-item title="功能情况" />
+
+    <view class="box">
+      <block wx:for="{{dataNow}}">
+        <van-cell title="{{item}}" is-link clickable data-value="{{item}}" bindtap="navi" />
+      </block>
+    </view>
   </van-sidebar>
   <view class="btn">
-    <van-button type="primary" size="normal">导入excel</van-button>
+    <van-button type="primary" size="normal">导出excel</van-button>
   </view>
+  
 </view>
