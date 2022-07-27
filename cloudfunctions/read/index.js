@@ -37,6 +37,9 @@ exports.main = async (event, context) => {
     case 'search':
       data = await search(event);
       break;
+      case 'search_2':
+      data = await search_2(event);
+      break;
     case 'readall':
       data = await readall(event);
       break;
@@ -74,6 +77,39 @@ async function shenpi2(event) {
         success: false
       }
     })
+  } catch (error) {
+    console.log(error);
+  }
+}
+async function search_2(event) {
+  let arr = event.arr;
+  let obj = {};
+  arr.forEach((item,index) => {
+    obj[`value${index}`] = item
+  })
+  console.log(arr);
+  try {
+
+    return await db.collection('cards').where(_.or([
+      {
+        num: obj["value1"] || obj["value2"] || obj["value3"] || obj["value4"] || obj["value5"]
+      }, 
+      {
+        name: obj["value1"] || obj["value2"] || obj["value3"] || obj["value4"] || obj["value5"]
+      }, {
+        catagory: obj["value1"] || obj["value2"] || obj["value3"] || obj["value4"] || obj["value5"]
+      }, {
+        partment: obj["value1"] || obj["value2"] || obj["value3"] || obj["value4"] || obj["value5"]
+      },
+      {
+        Usepartment: obj["value1"] || obj["value2"] || obj["value3"] || obj["value4"] || obj["value5"]
+      }, {
+        date: obj["value1"] || obj["value2"] || obj["value3"] || obj["value4"] || obj["value5"]
+      }, {
+        funcStation: obj["value1"] || obj["value2"] || obj["value3"] || obj["value4"] || obj["value5"]
+      },
+    ])).get()
+
   } catch (error) {
     console.log(error);
   }

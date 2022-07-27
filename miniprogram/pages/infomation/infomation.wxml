@@ -1,7 +1,7 @@
 <view class="container">
   <!-- 通知 -->
   <view class="inform">
-    <image src=""></image>
+    <image src="../../images/infomation/inform.png" mode="aspectFill"></image>
     <view class="inform_text">
       <view class="title">通知消息</view>
       <view class="content">您有一条用户权限提醒</view>
@@ -11,13 +11,17 @@
   <block wx:for="{{info}}" wx:key="*this">
     <view class="card">
       <view class="card_left">
-        <image src="{{item.iconUrl}}"></image>
+        <image src="{{item.iconUrl}}" style="position: relative;">
+          <view class="redbox">1</view>
+        </image>
         <view class="card_text">
           <view class="title" style="margin-bottom: 10rpx;">{{item.username}}</view>
           <view class="content">{{item.content}}</view>
         </view>
       </view>
-      <image class="photo" src="{{item.photo}}"></image>
+      <image class="photo" src="{{item.photo}}" mode="aspectFill">
+        
+      </image>
     </view>
   </block>
 </view>

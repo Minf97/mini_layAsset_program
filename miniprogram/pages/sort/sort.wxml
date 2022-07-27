@@ -1,5 +1,5 @@
 <view class="container">
-  <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+  <!-- <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
     <van-sidebar-item title="资产编码" />
     <van-sidebar-item title="资产名称" />
     <van-sidebar-item title="资产管理类别" />
@@ -13,9 +13,20 @@
         <van-cell title="{{item}}" is-link clickable data-value="{{item}}" bindtap="navi" />
       </block>
     </view>
-  </van-sidebar>
+  </van-sidebar> -->
+
   <view class="btn">
-    <van-button type="primary" size="normal">导出excel</van-button>
+    <van-button custom-class="btnvan" type="info" size="normal">导出excel</van-button>
+    <van-button custom-class="btnvan" type="primary" size="normal" bind:click="navitosearch">确定</van-button>
   </view>
   
+
+   <van-tree-select
+      items="{{ items }}"
+      main-active-index="{{ mainActiveIndex }}"
+      active-id="{{ activeId }}"
+      bind:click-nav="onClickNav"
+      bind:click-item="onClickItem"
+    />
+
 </view>

@@ -11,7 +11,8 @@
     "pages/pubsearch/pubsearch",
     "pages/detail/detail",
     "pages/search/search",
-    "pages/searchDetail/searchDetail"
+    "pages/searchDetail/searchDetail",
+    "pages/searchDetail2/searchDetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

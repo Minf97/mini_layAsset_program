@@ -29,7 +29,9 @@
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
-  background-color: pink;
+  /* background-color: pink; */
+  overflow: visible;
+  box-shadow: 0 0 10rpx 5rpx rgb(241, 241, 241);
   margin-right: 20rpx;
 }
 .inform_text, .card_text {
@@ -45,7 +47,24 @@
   color: #777777;
 }
 .photo {
+  position: relative;
   width: 130rpx !important;
   height: 130rpx !important;
   border-radius: 10rpx !important;
+}
+.redbox {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25rpx;
+  height: 25rpx;
+  background-color: #e23c1a;
+  border-radius: 50%;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23rpx;
+  color: #fff;
+  box-shadow: 0 0 0 10rpx #fff;
 }

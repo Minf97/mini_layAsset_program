@@ -12,7 +12,64 @@ Page({
 
       data: [],
       dataNow: [],
+    },
+
+    mainActiveIndex: 0,
+    activeId: [],
+    max: 2,
+    items: [
+      {
+        text: '资产编码',
+        children: [],
+      },
+      {
+        text: '',
+        children: [
+          {
+            text: '测试',
+            id: 1
+          },
+          {
+            text: '123',
+            id: 2,
+          },
+        ],
+      },
+      {
+        text: '资产编码',
+        children: [
+          {
+            text: '温州',
+            id: 1
+          },
+          {
+            text: '杭州',
+            id: 2,
+          },
+        ],
+      },
+    ]
+  },
+
+  onClickNav({ detail = {} }) {
+    console.log(detail);
+    this.setData({
+      mainActiveIndex: detail.index || 0,
+    });
+  },
+
+  onClickItem({ detail = {} }) {
+    console.log(detail);
+    const { activeId } = this.data;
+
+    const index = activeId.indexOf(detail.id);
+    if (index > -1) {
+      activeId.splice(index, 1);
+    } else {
+      activeId.push(detail.id);
     }
+
+    this.setData({ activeId });
   },
   onChange(e) {
     console.log(e);
@@ -27,7 +84,7 @@ Page({
           dataNow
         })
         break;
-        case 1:
+      case 1:
         dataNow = this.data.data.map(item => {
           return item.name
         })
@@ -83,7 +140,7 @@ Page({
         break;
     }
   },
-  navi({currentTarget: {dataset: {value}}}) {
+  navi({ currentTarget: { dataset: { value } } }) {
     wx.navigateTo({
       url: `../searchDetail/searchDetail?value=${value}`,
     })
@@ -99,14 +156,91 @@ Page({
         let dataNow = res.result.data.map(item => {
           return item.num
         })
-        console.log(dataNow, res.result.data);
+        let items = [];
+        let numobj = {
+          text: '资产编码',
+          children: []
+        },
+          nameobj = {
+            text: '资产名称',
+            children: []
+          },
+          catagoryobj = {
+            text: '资产管理类别',
+            children: []
+          },
+          partmentobj = {
+            text: '管理部门',
+            children: []
+          },
+          usepartmentobj = {
+            text: '使用部门',
+            children: []
+          },
+          dateobj = {
+            text: '投用日期',
+            children: []
+          },
+          funcStationobj = {
+            text: '功能情况',
+            children: []
+          };
+        res.result.data.map((item, index) => {
+          numobj.children.push({
+            text: item.num,
+            id: item.num
+          })
+          nameobj.children.push({
+            text: item.name,
+            id: item.name
+          })
+          catagoryobj.children.push({
+            text: item.catagory,
+            id: item.catagory
+          })
+          partmentobj.children.push({
+            text: item.partment,
+            id: item.partment,
+          })
+          usepartmentobj.children.push({
+            text: item.Usepartment,
+            id: item.Usepartment,
+          })
+          dateobj.children.push({
+            text: item.date,
+            id: item.date,
+          })
+          funcStationobj.children.push({
+            text: item.funcStation,
+            id: item.funcStation,
+          })
+        })
+
+        let formatArr = (arr) => {
+          let map = new Map();
+          for (let item of arr) {
+            if (!map.has(item.text)) {
+              map.set(item.text, item);
+            }
+          }
+          return [...map.values()];
+        }
+        nameobj.children = formatArr(partmentobj.children);
+        partmentobj.children = formatArr(partmentobj.children);
+        usepartmentobj.children = formatArr(partmentobj.children);
+        catagoryobj.children = formatArr(catagoryobj.children);
+        dateobj.children = formatArr(dateobj.children);
+        funcStationobj.children = formatArr(funcStationobj.children);
+
+        items = [numobj, nameobj, catagoryobj, partmentobj, usepartmentobj, dateobj, funcStationobj]
         that.setData({
           data: res.result.data,
-          dataNow
+          dataNow,
+          items
         })
       }
     })
-    
+
   },
 
   /**
@@ -116,11 +250,12 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
+  navitosearch(e) {
+    let arr = this.data.activeId;
 
+    wx.navigateTo({
+      url: `../searchDetail2/searchDetail?arr=${arr}`,
+    })
   },
 
   /**

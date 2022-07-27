@@ -2,7 +2,8 @@
 Page({
 
   data: {
-    data: {}
+    data: {},
+    user: wx.getStorageSync('user')
   },
 
   onLoad(options) {
@@ -40,6 +41,24 @@ Page({
       urls: data.fileID,
       current: data.fileID[+(index)]
     })
+  },
+  shenqing(e) {
+    wx.showLoading({
+      title: '处理中...',
+    })
+
+    setTimeout(() => {
+      wx.hideLoading({
+        success: (res) => {
+          wx.showModal({
+            cancelColor: 'cancelColor',
+            content: '已申请，等待审批',
+            showCancel: false
+          })
+        },
+      })
+    }, 200);
+    
   },
   onShareAppMessage() {
 

@@ -30,7 +30,10 @@ Page({
     })
   },
   onLoad: function (options) {
-    let that = this
+    let that = this;
+    wx.showTabBarRedDot({
+      index: 3,
+    })
     wx.cloud.callFunction({
       name: 'read',
       data: {

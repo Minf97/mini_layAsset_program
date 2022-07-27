@@ -4,7 +4,7 @@
       <van-cell required="{{item.required}}" wx:if="{{item.label=='功能情况' || item.label=='开始闲置日期'}}" title="{{item.label}}" is-link value="{{item.value}}" data-value="{{item.dataset}}" bind:click="popshow" />
 
       <van-field wx:else bind:change="fieldChange" input-class="{{item.onfocus ? 'input-class' : ''}}" bind:focus="onFocus" border="{{item.onfocus}}" bind:blur="onBlur" data-index="{{index}}" required="{{item.required}}" clickable type="{{item.type}}" name="{{item.name}}" label="{{item.label}}" value="{{item.value}}" left-icon="{{item.icon}}" placeholder="{{item.placeholder}}" input-align="right" />
-      <view hidden="{{!item.onfocus}}" class="xialaView" style="top: {{(index*88) + 68}}rpx; left: 230rpx;">
+      <view hidden="{{!item.onfocus}}" class="xialaView" style="top: {{(index*44) + 34}}px; left: 230rpx;">
         <block wx:for="{{hint}}" wx:key="*this" wx:for-item="e" wx:for-index="idx">
           <van-cell title="{{e}}" clickable icon="clock-o" data-idx="{{idx}}" data-index="{{index}}" bindtap="chooseHint" />
 
@@ -43,15 +43,17 @@
   title="选择时间"
   value="{{ currentDate }}"
   bind:input="onInput"
+  bind:confirm="onConfirm1"
+  bind:cancel="onClose11"
   min-date="{{ minDate }}"
   formatter="{{ formatter }}"
 />
 </van-popup>
 <!-- <van-popup show="{{ show4 }}" position="bottom" custom-style="height: 50%;" data-value="date" bind:close="popClose">
   <van-picker show-toolbar title="投用日期" columns="{{ columns4 }}" data-value="date" bind:cancel="popClose" bind:confirm="popConfirm" bind:change="onChange1" />
-</van-popup>
+</van-popup> -->
 <van-popup show="{{ show5 }}" position="bottom" custom-style="height: 50%;" data-value="funcStation" bind:close="popClose">
   <van-picker show-toolbar title="功能情况" columns="{{ columns5 }}" data-value="funcStation" bind:cancel="popClose" bind:confirm="popConfirm" bind:change="onChange1" />
-</van-popup> -->
+</van-popup>
 
 <van-dialog id="van-dialog" />

@@ -1,4 +1,13 @@
 <view class="container">
+
+  <!-- <view class="avatar">
+    <image src="{{user.avatarUrl}}" mode="aspectFill"></image>
+    <view class="avatarText">
+      <view class="nickname">{{user.nickname}}</view>
+      <view class="user">{{user.username}}</view>
+    </view>
+  </view> -->
+
   <view class="textBox">
     <van-cell-group inset>
       <block wx:for="{{data}}" wx:key="*this" wx:for-index='key'>
@@ -17,7 +26,11 @@
   </view>
 
   <van-cell-group inset>
-    
+
   </van-cell-group>
 
+  <view class="btnbox">
+    <van-button type="info" custom-class="btnclass" icon="chat-o" custom-class="btnclass" bindtap="shenqing">联系</van-button>
+    <van-button type="info" custom-class="btnclass" bindtap="shenqing">申请领用</van-button>
+  </view>
 </view>

@@ -176,7 +176,7 @@ Page({
     show3: false,
 
     currentDate: new Date().getTime(),
-    minDate: new Date().getTime(),
+    minDate: new Date("2000/01/01").getTime(),
     formatter(type, value) {
       if (type === 'year') {
         return `${value}年`;
@@ -189,7 +189,7 @@ Page({
   },
   onInput(event) {
     this.setData({
-      currentDate: event.detail,
+      'list1[11].value': event.detail,
     });
   },
   chooseImage(e) {
@@ -226,7 +226,8 @@ Page({
   },
   
   formSubmit(e) {
-    let { num, name, catagory, partment, Usepartment, nowVal, place, users, originalVal, date, begin } = e.detail.value;
+    let { num, name, catagory, partment, Usepartment, nowVal, place, users, originalVal, date } = e.detail.value;
+    let begin = this.data.list1[11].value + "";
     let funcStation = this.data.list1[12].value;
     let photo = this.data.photo;
     let user = wx.getStorageSync('user')
@@ -355,6 +356,16 @@ Page({
       [`list1[${index}].onfocus`]: true
     })
   },
+  onConfirm1(e) {
+    this.setData({
+      show3: false
+    })
+  },
+  onClose1(e) {
+    this.setData({
+      show3: false
+    })
+  },
   onBlur(e) {
     let { currentTarget: { dataset: { index } } } = e;
     this.setData({
@@ -368,6 +379,11 @@ Page({
       case "begin":
         this.setData({
           show3: !this.data.show3
+        })
+        break;
+        case "funcStation":
+        this.setData({
+          show5: !this.data.show5
         })
         break;
     }
@@ -415,7 +431,7 @@ Page({
       case "funcStation":
         this.setData({
           show5: !this.data.show5,
-          "list1[10].value": value
+          "list1[12].value": value
         })
         break;
       default:

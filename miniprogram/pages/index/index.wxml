@@ -1,6 +1,6 @@
 <view class="container">
   <!-- 头部 -->
-  <view class="head" style="width: 100%; height: {{statusBarHeight + lineHeight}}px; overflow: hidden;">
+  <view class="head" style="width: 100%; height: {{statusBarHeight + lineHeight}}px; overflow: hidden; background-color: #fff; z-index: 2;">
     <!-- 状态栏 -->
     <view style="height: {{statusBarHeight}}px;" />
     <!-- 导航栏 -->
@@ -58,11 +58,15 @@
   </view>
   <!-- 信息流 -->
   <block wx:for="{{infoData}}" wx:key="*this">
+  <view class="boxbox1" style="position: relative;">
+    <view class="xuhao" style="font-size: 30rpx; position: absolute; top: 50%; z-index: 2; left: 20rpx;">{{index}}.</view>
     <van-card custom-class="infoBox" num="1" desc="{{item.name}}" title="{{item.partment}}" thumb="{{ item.fileID[0] }}" data-index="{{index}}" bindtap="naviTodetail">
       <view slot="tags">
         <van-tag plain type="danger">{{item.catagory}}</van-tag>
       </view>
     </van-card>
+  </view>
+    
   </block>
   <view wx:if="{{loadAll}}" class="datanull">- 暂无更多数据 -</view>
 </view>

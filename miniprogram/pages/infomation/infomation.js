@@ -7,22 +7,22 @@ Page({
   data: {
     info: [
       {
-        iconUrl:'',
-        username: '用户名测试1',
-        content: '最后一次聊天记录',
-        phtot: ''
+        iconUrl:'../../images/infomation/inform.png',
+        username: '系统提示',
+        content: '您的闲置资产发布已审批通过。',
+        photo: '../../images/infomation/1.jpg'
       },
       {
-        iconUrl:'',
-        username: '用户名测试2',
-        content: '最后一次聊天记录',
-        phtot: ''
+        iconUrl:'../../images/infomation/inform.png',
+        username: '系统提示',
+        content: '您的闲置资产领用已审批。',
+        photo: '../../images/infomation/2.jpg'
       },
       {
-        iconUrl:'',
-        username: '用户名测试3',
-        content: '最后一次聊天记录',
-        phtot: ''
+        iconUrl:'../../images/infomation/inform.png',
+        username: '系统提示',
+        content: '您有一条闲置资产申请待审批。',
+        photo: '../../images/infomation/3.jpg'
       }
     ]
   },

@@ -11,3 +11,67 @@ page {
   overflow: hidden;
   margin-bottom: 50rpx;
 }
+
+.avatar {
+  padding: 20rpx 20rpx 0 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+}
+/* 头像 */
+.avatar image{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 30rpx;
+  background-color: #fafafa;
+}
+.avatarText {
+  min-width: 100rpx;
+  position: relative;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.user {
+  font-size: 25rpx;
+  color: #868585;
+}
+.container {
+  min-height: 100vh;
+}
+.iconbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.text1 {
+  font-size: 26rpx;
+  color: #5c5c5c;
+}
+.btnbox {
+  position: fixed;
+  /* background-color: #fff; */
+  z-index: 2;
+  bottom: 0;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  right: 0;
+}
+
+.iconbox {
+  margin: 0 20rpx;
+}
+
+.btnclass {
+  margin-left: 20rpx;
+  width: 200rpx;
+  height: 60rpx !important;
+}

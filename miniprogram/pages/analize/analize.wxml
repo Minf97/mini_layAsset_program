@@ -1,2 +1,7 @@
-<!--pages/analize/analize.wxml-->
-<text>pages/analize/analize.wxml</text>
+<view class="container">
+  <image src="../../images/analize/photo1.jpg" class="img" mode="widthFix"></image>
+  <image src="../../images/analize/photo2.jpg" class="img" mode="widthFix"></image>
+  <image src="../../images/analize/photo3.jpg" class="img" mode="widthFix"></image>
+  <image src="../../images/analize/photo4.jpg" class="img" mode="widthFix"></image>
+  <image src="../../images/analize/photo5.jpg" class="img" mode="widthFix"></image>
+</view>

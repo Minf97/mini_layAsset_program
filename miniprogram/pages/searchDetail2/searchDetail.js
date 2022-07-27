@@ -20,11 +20,9 @@ Page({
     value2: '默认排序',
   },
   change11({ detail }) {
-    console.log(detail, this.data.value2, this.data.value1);
+    // console.log(e);
     let list = this.data.list;
     let value2 = this.data.value2;
-    let value1 = this.data.value1;
-
     // 从小到大
     function objArraySort(objArr, key) {
       let result = objArr.slice(0);
@@ -35,73 +33,15 @@ Page({
       let result = objArr.slice(0);
       return result.sort((a, b) => b[key] - a[key]);
     }
-    console.log();
     switch (detail) {
-      case '默认排序':
-        if (value1 == '闲置时长') {
-          this.setData({
-            value2: detail,
-            list: objArraySort(list, 'date')
-          })
-        } else if (value1 == '投用日期') {
-          this.setData({
-            value2: detail,
-            list: objArraySort1(list, 'date')
-          })
-        } else if (value1 == '原值') {
-          this.setData({
-            value2: detail,
-            list: objArraySort(list, 'originalVal')
-          })
-        } else if (value1 == '净值') {
-          this.setData({
-            value2: detail,
-            list: objArraySort(list, 'nowVal')
-          })
-        } else if (value1 == '资产编码') {
-          this.setData({
-            value2: detail,
-            list: objArraySort(list, 'num')
-          })
-        }
-        break;
-      case '倒序':
-        if (value1 == '闲置时长') {
-          this.setData({
-            value2: detail,
-            list: objArraySort1(list, 'date')
-          })
-        } else if (value1 == '投用日期') {
-          this.setData({
-            value2: detail,
-            list: objArraySort1(list, 'date')
-          })
-        } else if (value1 == '原值') {
-          this.setData({
-            value2: detail,
-            list: objArraySort1(list, 'originalVal')
-          })
-        } else if (value1 == '净值') {
-          this.setData({
-            value2: detail,
-            list: objArraySort1(list, 'nowVal')
-          })
-        } else if (value1 == '资产编码') {
-          this.setData({
-            value2: detail,
-            list: objArraySort1(list, 'num')
-          })
-        }
-        break;
       case '净值':
         if (value2 == '默认排序') {
+
           this.setData({
-            value1: detail,
             list: objArraySort(list, 'nowVal')
           })
         } else {
           this.setData({
-            value1: detail,
             list: objArraySort1(list, 'nowVal')
           })
         }
@@ -109,12 +49,10 @@ Page({
       case '原值':
         if (value2 == '默认排序') {
           this.setData({
-            value1: detail,
             list: objArraySort(list, 'originalVal')
           })
         } else {
           this.setData({
-            value1: detail,
             list: objArraySort1(list, 'originalVal')
           })
         }
@@ -122,58 +60,43 @@ Page({
       case '资产编码':
         if (value2 == '默认排序') {
           this.setData({
-            value1: detail,
             list: objArraySort(list, 'num')
           })
         } else {
           this.setData({
-            value1: detail,
             list: objArraySort1(list, 'num')
           })
         }
         break;
       case '投用日期':
-        console.log(list[0].date);
-        console.log();
-        list.forEach(item => {
-          item.date = new Date(item.date.split("-").join("/")).getTime()
-        })
         if (value2 == '默认排序') {
-          
-          console.log(objArraySort(list, 'date'));
           this.setData({
-            value1: detail,
             list: objArraySort(list, 'date')
           })
         } else {
-          
-          console.log(objArraySort(list, 'date'));
-
           this.setData({
-            value1: detail,
             list: objArraySort1(list, 'date')
           })
         }
         break;
       case '闲置时长':
         if (value2 == '默认排序') {
-          
           this.setData({
-            value1: detail,
-            list: objArraySort(list, 'date')
+            list: objArraySort(list, 'nowVal')
           })
         } else {
-          
           this.setData({
-            value1: detail,
-            list: objArraySort1(list, 'date')
+            list: objArraySort1(list, 'nowVal')
           })
         }
         break;
     }
   },
   onLoad(options) {
-    let { value } = options;
+    let { arr } = options;
+    arr = arr.split(',');
+    console.log(arr);
+    // return;
     let that = this;
     wx.showLoading({
       title: '正在加载...',
@@ -181,8 +104,7 @@ Page({
     wx.cloud.callFunction({
       name: 'read',
       data: {
-        type: 'search',
-        value
+        type: 'readall',
       },
       success(res) {
         console.log(res);
@@ -192,9 +114,26 @@ Page({
             loadAll: true
           })
         }
+        let newArr = [];
+        result.forEach(item => {
+          arr.forEach(e => {
+            if(item.num == e ||
+              item.name == e ||
+              item.catagory == e ||
+              item.partment == e ||
+              item.Usepartment == e ||
+              item.date == e ||
+              item.funcStation == e) {
+                newArr.push(item)
+              }
+          })
+          
+        })
+
+
         wx.hideLoading()
         that.setData({
-          list: result
+          list: newArr
         })
       }
     })
